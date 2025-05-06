@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>REMARQUE</title>
+    <link rel="stylesheet" href="styel90_1.css">
+</head>
+<body>
+    <!-- Hidden file input for image uploads -->
+    <input type="file" id="file-input" accept="image/*">
+    
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="logo.png" alt="REMARQUE Logo">
+                <h1 id="document-title" contenteditable="true">Untitled document</h1>
+            </div>
+            
+            <!-- Centered navigation buttons -->
+            <div class="nav-bar-container">
+                <div class="nav-bar">
+                    <a href="index.HTML">
+                        <button class="home">HOME</button>
+                    </a>
+                    <div class="sert">
+                        <button onclick="toggleDropdown('insert-dropdown', event)" class="insert">Insert</button>
+                        <div id="insert-dropdown" class="dropdown-content">
+                            <a href="#" onclick="document.getElementById('file-input').click()">Image</a>
+                            <a href="#" onclick="insertTable()">Table</a>
+                            <a href="#" onclick="startDrawing()">Drawing</a>
+                            <a href="#" onclick="insertHorizontalLine()">Horizontal line</a>
+                            <a href="#" onclick="insertNextPage()">Next page</a>
+                            <a href="#" onclick="insertHeader()">Header</a>
+                        </div>
+                    </div>
+                    <div class="file-dropdown">
+                        <button onclick="toggleDropdown('file-dropdown', event)" class="file">File</button>
+                        <div id="file-dropdown" class="dropdown-content">
+                            <a href="#" onclick="newFile()">New</a>
+                            <a href="#" onclick="openFile()">Open File</a>
+                            <a href="#" onclick="saveFile()">Save</a>
+                            <a href="#" onclick="saveAsFile()">Save As</a>
+                            <a href="#" onclick="makeCopy()">Make a Copy</a>
+                            <a href="#" onclick="downloadFile()">Download</a>
+                            <a href="#" onclick="moveToTrash()">Move to Trash</a>
+                        </div>
+                    </div>
+                    
+                    <div class="format-dropdown">
+                        <button onclick="toggleDropdown('format-dropdown', event)" class="format">Format</button>
+                        <div id="format-dropdown" class="dropdown-content">
+                            <div class="has-submenu">
+                                <a href="#" onclick="event.preventDefault(); toggleSubmenu('align-submenu', event)">Align & indent ▼</a>
+                                <div id="align-submenu" class="submenu">
+                                    <a href="#" onclick="alignText('justifyLeft')">Align Left</a>
+                                    <a href="#" onclick="alignText('justifyCenter')">Align Center</a>
+                                    <a href="#" onclick="alignText('justifyRight')">Align Right</a>
+                                    <a href="#" onclick="alignText('justifyFull')">Justify</a>
+                                    <a href="#" onclick="document.execCommand('indent')">Increase Indent</a>
+                                    <a href="#" onclick="document.execCommand('outdent')">Decrease Indent</a>
+                                </div>
+                            </div>
+                            <div class="has-submenu">
+                                <a href="#" onclick="event.preventDefault(); toggleSubmenu('spacing-submenu', event)">Line & paragraph spacing ▼</a>
+                                <div id="spacing-submenu" class="submenu">
+                                    <a href="#" onclick="setLineHeight('1.5')">1.5 Line Spacing</a>
+                                    <a href="#" onclick="setLineHeight('2')">Double Line Spacing</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="share-dropdown">
+                        <button onclick="toggleDropdown('share-dropdown', event)" class="share">Share</button>
+                        <div id="share-dropdown" class="dropdown-content">
+                            <a href="#" onclick="copyLink()">Copy link</a>
+                            <div class="has-submenu">
+                                <a href="#" onclick="event.preventDefault(); toggleSubmenu('access-submenu', event)">Manage access ▼</a>
+                                <div id="access-submenu" class="submenu">
+                                    <a href="#" onclick="setAccess('anyone')">Anyone with the link</a>
+                                    <a href="#" onclick="setAccess('editor')">Editor</a>
+                                    <a href="#" onclick="setAccess('viewer')">Viewer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Empty div to balance the flex layout -->
+            <div class="header-spacer"></div>
+        </div>
+        <div class="header-bottom">
+            <button onclick="handleUndo()" title="Undo" class="icon">↻</button>
+            <select id="fontSize" onchange="changeFontSize()">
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="18">18</option>
+                <option value="24">24</option>
+            </select>
+            
+            <select id="font-family" onchange="changeFontFamily(this.value)">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Microsoft YaHei">Microsoft YaHei</option>
+                <option value="SimSun">SimSun</option>
+            </select>
+            <input type="color" id="text-color" onchange="changeTextColor(this.value)">
+            <button onclick="formatText('bold')" title="Bold" class="icon"><b>B</b></button>
+            <button onclick="formatText('italic')" title="Italic" class="icon"><i>I</i></button>
+            <button onclick="formatText('underline')" title="Underline" class="icon"><u>U</u></button>
+            <div class="alignment-controls">
+                <button onclick="alignText('justifyLeft')" title="Align Left" class="align-btn left-align">
+                    <span class="line"></span>
+                    <span class="line short"></span>
+                </button>
+                <button onclick="alignText('justifyCenter')" title="Align Center" class="align-btn center-align">
+                    <span class="line short"></span>
+                    <span class="line"></span>
+                    <span class="line short"></span>
+                </button>
+                <button onclick="alignText('justifyRight')" title="Align Right" class="align-btn right-align">
+                    <span class="line short"></span>
+                    <span class="line"></span>
+                </button>
+            </div>
+            <button onclick="handlePrint()" title="Print" class="icon">🖨️</button>
+        </div>
+    </header>
+
+    <!-- Drawing Tools -->
+    <div class="drawing-tools" id="drawing-tools">
+        <input type="color" id="drawing-color" class="color-picker" value="#000000">
+        <input type="range" id="brush-size" class="brush-size" min="1" max="20" value="5">
+        <button onclick="finishDrawing()">Done</button>
+        <button onclick="clearDrawing()">Clear</button>
+    </div>
+
+    <!-- Text Editor -->
+    <div class="editor-container" id="editor-container">
+        <div class="page" contenteditable="true" id="page1" placeholder="Start typing here..."></div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer-text" > 2025 REMARQUE. All rights reserved. </footer>
+   
+
+   <script src="script90_1.js"></script>
+</body>
+</html>

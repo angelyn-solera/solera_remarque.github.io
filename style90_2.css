@@ -1,0 +1,344 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(163deg, #f5fafec8 0%, #005dafce 100%);
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+header {
+    background-image: linear-gradient(163deg, #01233f 0%, #4594d4 70%);
+    color: #ffffff;
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1 {
+    margin: 0;
+    margin-left: 10px;
+    font-size: 1.5rem;
+}
+
+.login-button {
+    background: #ffffff;
+    color: #4984b4;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+.login-button:hover {
+    background: #89bddb;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Menu icon styles */
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px;
+    background: #4594d4;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1000;
+    margin-right: 5px;
+}
+
+.menu-icon span {
+    width: 25px;
+    height: 3px;
+    background: #ffffff;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    z-index: 2000;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: #4984b4;
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu a:hover {
+    background: #6cb0dd;
+}
+
+.dropdown-menu.active {
+    right: 0;
+}
+
+/* Form styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 2em;
+    background-color: #171717;
+    border-radius: 25px;
+    transition: 0.4s ease-in-out;
+    box-sizing: border-box;
+}
+
+.card {
+    background-image: linear-gradient(163deg, #53a5e7 0%, #001a30 100%);
+    border-radius: 22px;
+    transition: all 0.3s;
+    padding: 2em;
+    margin: 2em auto;
+    max-width: 500px;
+    width: 90%;
+    margin-top: 100px;
+    box-sizing: border-box;
+}
+
+.card2 {
+    border-radius: 0;
+    transition: all 0.2s;
+}
+
+.card2:hover {
+    transform: scale(0.98);
+    border-radius: 20px;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 30px 1px rgba(4, 55, 97, 0.3);
+}
+
+#heading {
+    text-align: center;
+    margin: 1em 0;
+    color: rgb(255, 255, 255);
+    font-size: 1.3em;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border-radius: 25px;
+    padding: 0.8em;
+    border: none;
+    outline: none;
+    color: black;
+    background-color: #0b5e80;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: rgb(0, 0, 0);
+}
+
+.input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: black;
+    font-size: 1em;
+}
+
+.form .btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 2em;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.button1, .button2, .button3 {
+    padding: 0.6em 1.2em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: 0.4s ease-in-out;
+    background-color: #2b4452;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.button1:hover, .button2:hover {
+    background-color: rgb(5, 59, 83);
+    color: rgb(37, 214, 226);
+}
+
+.button3:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Exit button styles */
+.exit-button {
+    background-color: #4dafff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.exit-button:hover {
+    background-color: #064db6;
+}
+
+.success-message {
+    color: rgb(255, 255, 255);
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.signup-form {
+    display: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+        margin-left: 5px;
+    }
+    
+    .logo img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .login-button {
+        padding: 4px 8px;
+        font-size: 14px;
+    }
+    
+    .card {
+        padding: 1.5em;
+        margin-top: 80px;
+    }
+    
+    .form {
+        padding: 1.5em;
+    }
+    
+    #heading {
+        font-size: 1.1em;
+    }
+    
+    .form .btn {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .button1, .button2, .button3 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.1rem;
+    }
+    
+    .menu-icon {
+        padding: 6px;
+    }
+    
+    .menu-icon span {
+        width: 20px;
+        height: 2px;
+    }
+    
+    .dropdown-menu {
+        width: 200px;
+    }
+    
+    .dropdown-menu a {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .card {
+        width: 95%;
+        padding: 1em;
+    }
+    
+    .form {
+        padding: 1em;
+    }
+    
+    .field {
+        padding: 0.6em;
+    }
+    
+    .input-field {
+        font-size: 0.9em;
+    }
+}

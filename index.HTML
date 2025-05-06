@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>REMARQUE</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="REMARQUE - A powerful workflow enhancement tool">
+      <link rel="stylesheet" href="style.90.css">
+       
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <img src="logo.png" alt="Remarque Logo">
+                <h1>REMARQUE</h1>
+            </div>
+            <div class="header-right">
+                <button class="help-button" onclick="askProblem()">?</button>
+                <a href="index2.html">
+                    <button class="login-button">Log In</button>
+                </a>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        
+        <div class="dropdown-menu" id="menu">
+            <a href="#" onclick="handleMenuClick('Language')" id="language-menu-item">Language</a>
+            <div class="language-list" id="languageList">
+                <a href="#" onclick="selectLanguage('en', 'English')">English</a>
+                <a href="#" onclick="selectLanguage('fil', 'Filipino')">Filipino</a>
+            </div>
+            <a href="#" onclick="handleMenuClick('About')" id="about-menu-item">About</a>
+            <div class="about-content" id="aboutContent">
+                REMARQUE is a powerful and intuitive tool designed to enhance your workflow. 
+                It offers features like ad-free usage, fast and free access, and easy saving options. 
+                Enjoy a seamless experience with REMARQUE!
+            </div>
+            <button class="exit-button" id="exit-button">Exit</button>
+        </div>
+
+        <div class="centered-content">
+            <img src="logo.png" alt="Remarque Logo">
+            <h2 id="welcome-text">Enjoy workflow with</h2>
+            <h1>REMARQUE</h1>
+            <a href="index1.html"> 
+                <button class="get-started-button" id="get-started-btn">Get Started</button>
+            </a>
+           
+            <div class="boxes-container">
+                <div class="box" id="feature1">NO ADS</div>
+                <div class="box" id="feature2">FAST AND FREE</div>
+                <div class="box" id="feature3">EASY TO SAVE</div>
+            </div>
+        </div>
+        
+        <footer id="footer-text">
+            2025 REMARQUE. All rights reserved.
+        </footer>
+        
+        <script>
+            let deferredPrompt;
+            
+            // Language translations
+            const translations = {
+                'en': {
+                    'welcome': 'Enjoy workflow with',
+                    'getStarted': 'Get Started',
+                    'noAds': 'NO ADS',
+                    'fastFree': 'FAST AND FREE',
+                    'easySave': 'EASY TO SAVE',
+                    'footer': '2025 REMARQUE. All rights reserved.',
+                    'about': 'REMARQUE is a powerful and intuitive tool designed to enhance your workflow. It offers features like ad-free usage, fast and free access, and easy saving options. Enjoy a seamless experience with REMARQUE!',
+                    'language': 'Language',
+                    'aboutMenu': 'About',
+                    'exit': 'Exit',
+                    'login': 'Log In'
+                },
+                'fil': {
+                    'welcome': 'Tangkilikin ang daloy ng trabaho',
+                    'getStarted': 'Magsimula Na',
+                    'noAds': 'WALANG ADS',
+                    'fastFree': 'MABILIS AT LIBRE',
+                    'easySave': 'MADALING I-SAVE',
+                    'footer': '2025 REMARQUE. Lahat ng karapatan ay nakalaan.',
+                    'about': 'Ang REMARQUE ay isang makapangyarihan at madaling gamitin na kasangkapan na idinisenyo upang pahusayin ang iyong daloy ng trabaho. Nag-aalok ito ng mga tampok gaya ng paggamit na walang ads, mabilis at libreng access, at madaling paraan ng pag-save. Damhin ang tuloy-tuloy na karanasan gamit ang REMARQUE!',
+                    'language': 'Wika',
+                    'aboutMenu': 'Tungkol Sa',
+                    'exit': 'Lumabas',
+                    'login': 'Mag-log In'
+                }
+            };
+            
+            // Current language (default to English)
+            let currentLanguage = 'en';
+            
+            function toggleMenu() {
+                document.getElementById("menu").classList.toggle("active");
+                // Hide language list and about content when menu is closed
+                document.getElementById("languageList").classList.remove("active");
+                document.getElementById("aboutContent").classList.remove("active");
+            }
+
+            function handleMenuClick(action) {
+                const languageList = document.getElementById("languageList");
+                const aboutContent = document.getElementById("aboutContent");
+
+                if (action === 'Language') {
+                    languageList.classList.toggle("active");
+                    aboutContent.classList.remove("active");
+                } else if (action === 'About') {
+                    aboutContent.classList.toggle("active");
+                    languageList.classList.remove("active");
+                }
+            }
+
+            function selectLanguage(langCode, langName) {
+                currentLanguage = langCode;
+                updateLanguage();
+                alert(currentLanguage === 'fil' ? 
+                    `Ang wika ay naitakda sa: ${langName}` : 
+                    `Language set to: ${langName}`);
+                toggleMenu(); // Close the menu after selecting a language
+            }
+            
+            function updateLanguage() {
+                const lang = translations[currentLanguage];
+                // Update main content
+                document.getElementById('welcome-text').textContent = lang.welcome;
+                document.getElementById('get-started-btn').textContent = lang.getStarted;
+                document.getElementById('feature1').textContent = lang.noAds;
+                document.getElementById('feature2').textContent = lang.fastFree;
+                document.getElementById('feature3').textContent = lang.easySave;
+                document.getElementById('footer-text').textContent = lang.footer;
+                document.getElementById('aboutContent').textContent = lang.about;
+                
+                // Update menu items
+                document.getElementById('language-menu-item').textContent = lang.language;
+                document.getElementById('about-menu-item').textContent = lang.aboutMenu;
+                document.getElementById('exit-button').textContent = lang.exit;
+                
+                // Update login button
+                document.querySelector('.login-button').textContent = lang.login;
+            }
+
+            function askProblem() {
+                const problem = prompt(currentLanguage === 'fil' ? 
+                    "Ano ang problema?" : "What is the problem?");
+                if (problem) {
+                    alert(currentLanguage === 'fil' ? 
+                        `Salamat sa iyong feedback. Titingnan namin ang: "${problem}"` :
+                        `Thank you for your feedback. We'll look into: "${problem}"`);
+                } else {
+                    alert(currentLanguage === 'fil' ? 
+                        "Walang naiulat na problema. Kung kailangan mo ng tulong, mangyaring makipag-ugnayan sa suporta." :
+                        "No problem reported. If you need help, please contact support.");
+                }
+            }
+            
+            // Initialize the page with English language
+            document.addEventListener('DOMContentLoaded', function() {
+                updateLanguage();
+            });
+        </script>
+    </body>
+</html>

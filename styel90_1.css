@@ -1,0 +1,535 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: #333;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+header {
+    background-image: linear-gradient(163deg, #01233f 0%, #4594d4 70%);
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Flexbox settings */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.logo {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar-container {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+}
+
+.header-spacer {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Make sure items don't overflow */
+.header-top > * {
+    margin: 5px;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    max-width: 100%;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    outline: none;
+    padding: 5px;
+    border-radius: 4px;
+    word-break: break-word;
+}
+
+.logo h1:focus {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-bar {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-bar button {
+    background: #ffffff;
+    color: #4984b4;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    min-width: max-content;
+}
+
+.nav-bar button:hover {
+    background: rgba(255, 255, 255, 0.555);
+}
+
+/* Header Bottom - Updated for tighter spacing */
+.header-bottom {
+    margin-top: 10px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.header-bottom button {
+    background: rgba(220, 226, 235, 0.233);
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    min-width: max-content;
+    margin: 0 1px;
+}
+
+.header-bottom button:hover {
+    background: rgba(92, 92, 92, 0.288);
+}
+
+.header-bottom select,
+.header-bottom input[type="color"] {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    max-width: 100%;
+    margin: 0 1px;
+}
+
+.header-bottom select:hover,
+.header-bottom input[type="color"]:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#fontSize {
+    background-color: #4984b4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+#font-family {
+    background-color: #4984b4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.icon {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+}
+
+/* Alignment controls styling - Updated for tighter spacing */
+.alignment-controls {
+    display: flex;
+    gap: 2px;
+    margin: 0 4px;
+    flex-wrap: nowrap;
+}
+
+.align-btn {
+    width: 30px;
+    height: 30px;
+    background: rgba(220, 226, 235, 0.233);
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    margin: 0;
+}
+
+.align-btn:hover {
+    background: rgba(92, 92, 92, 0.288);
+}
+
+.align-btn .line {
+    height: 2px;
+    background: white;
+    margin: 1px 0;
+    width: 16px;
+}
+
+.align-btn .line.short {
+    width: 10px;
+}
+
+/* Specific alignment styles */
+.left-align {
+    align-items: flex-start;
+    padding-left: 4px;
+}
+
+.center-align {
+    align-items: center;
+}
+
+.right-align {
+    align-items: flex-end;
+    padding-right: 4px;
+}
+
+/* Text Editor Styles */
+.editor-container {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.page {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    min-height: 500px;
+    outline: none;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    box-shadow: 4px 4px 13px rgba(0,0, 0, 0.5);
+    margin-bottom: 20px;
+    page-break-after: always;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.page:focus {
+    border-color: #5595c9;
+}
+
+.page[placeholder]:empty::before {
+    content: attr(placeholder);
+    color: #999;
+}
+
+/* Image resize handles */
+.resizable-img {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.resize-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 50%;
+    bottom: -5px;
+    right: -5px;
+    cursor: se-resize;
+}
+
+/* Drawing canvas */
+.drawing-canvas {
+    border: 1px solid #000;
+    margin: 10px 0;
+    cursor: crosshair;
+    display: block;
+    max-width: 100%;
+}
+
+/* Dropdown Styles */
+.insert, .format, .file, .share {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.insert:hover, .insert:focus, .file:hover, .file:focus, .format:hover, .format:focus, .share:hover, .share:focus {
+    background-color: #2980B9;
+}
+
+.sert, .file-dropdown, .format-dropdown, .share-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-image: linear-gradient(163deg, #075fa7 0%, #4594d4a8 70%);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    max-width: 100vw;
+    overflow: auto;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+/* Submenu Styles - Updated for left-side display */
+.has-submenu {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    right: 100%;  /* Changed to show on left side */
+    top: 0;
+    background-image: linear-gradient(163deg, #075fa7 0%, #4594d4a8 70%);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.submenu.show-submenu {
+    display: block;
+}
+
+/* Hidden file input */
+#file-input {
+    display: none;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #5595c9;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Drawing tools */
+.drawing-tools {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: none;
+    max-width: 90vw;
+}
+
+.drawing-tools button {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+.color-picker {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    vertical-align: middle;
+}
+
+.brush-size {
+    width: 100%;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    .header-top {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .logo, .nav-bar-container, .header-spacer {
+        min-width: 100%;
+        justify-content: center;
+        margin: 5px 0;
+    }
+
+    .nav-bar {
+        justify-content: center;
+        margin-top: 10px;
+        gap: 8px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+    
+    .editor-container {
+        width: 95%;
+        margin: 10px auto;
+        padding: 0;
+    }
+    
+    .page {
+        min-height: 70vh;
+        padding: 15px;
+        font-size: 18px;
+        line-height: 1.8;
+        width: 100%;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        box-shadow: none;
+    }
+    
+    .header-bottom {
+        justify-content: center;
+        padding: 3px 0;
+        gap: 2px;
+    }
+    
+    .header-bottom button, 
+    .header-bottom select, 
+    .header-bottom input[type="color"] {
+        font-size: 14px;
+        padding: 4px 6px;
+        margin: 0;
+    }
+    
+    .alignment-controls {
+        margin: 0 2px;
+        gap: 1px;
+    }
+    
+    img, canvas {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* For very small devices */
+@media (max-width: 480px) {
+    .nav-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .nav-bar button {
+        width: 100%;
+    }
+    
+    .page {
+        min-height: 80vh;
+        font-size: 16px;
+        padding: 10px;
+    }
+    
+    .header-bottom {
+        gap: 1px;
+    }
+    
+    .alignment-controls {
+        order: 1;
+        width: auto;
+        justify-content: center;
+        margin: 0;
+    }
+    
+    .dropdown-content {
+        position: relative;
+        width: 100%;
+    }
+    
+    .submenu {
+        position: relative;
+        right: auto;
+        left: 0;
+    }
+}
+
+/* Print-specific styles */
+@media print {
+    header, footer, .nav-bar, .header-bottom {
+        display: none !important;
+    }
+    .page {
+        margin: 0;
+        padding: 20mm;
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+    }
+    body {
+        background: white;
+        padding: 0;
+        margin: 0;
+    }
+    @page {
+        size: A4;
+        margin: 20mm;
+    }
+}

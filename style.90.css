@@ -1,0 +1,361 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(163deg, #f5fafec8 0%, #005dafce 100%);
+    transition: background-image 0.5s ease; 
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+header {
+    background-image: linear-gradient(163deg, #01233f 0%, #4594d4 70%);
+    color: #ffffff;
+    padding: 10px 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.help-button {
+    background-color: #6cb0dd;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.help-button:hover {
+    background-color: #4984b4;
+}
+
+h1 {
+    margin: 0;
+    margin-left: 10px; 
+}
+
+.login-button {
+    background: #ffffff;
+    color: #4984b4;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+.login-button:hover {
+    background: #89bddb;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 70px; 
+    height: 70px; 
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    background: #4594d4;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1000;
+}
+
+.menu-icon span {
+    width: 30px;
+    height: 3px;
+    background: #ffffff;
+    margin: 5px 4px;
+    transition: 0.4s;
+}
+
+.dropdown-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    z-index: 2000;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #4984b4;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu a:hover {
+    background: #6cb0dd;
+    color: white;
+}
+
+.dropdown-menu.active {
+    right: 0;
+}
+
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 90dvh;
+    padding: 0 20px;
+}
+
+.centered-content img {
+    width: 200px; 
+    height: 200px; 
+    margin-bottom: 30px; 
+    filter: drop-shadow(5px 6px 8px rgba(0.5, 0, 0, 0.6)); 
+    animation: float 3s ease-in-out infinite; 
+}
+
+.centered-content h2 {
+    font-size: 28px;
+    margin: 0;
+    margin-bottom: 10px; 
+    color: #000000; 
+}
+
+.centered-content h1 {
+    font-size: 46px;
+    margin: 0;
+    margin-bottom: 20px; 
+    color: #145081; 
+}
+
+.centered-content .get-started-button {
+    background: #145081; 
+    color: white; 
+    padding: 20px 20px;
+    font-size: 26px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 13px rgba(0,0, 0, 0.5);
+    margin-bottom: 30px;
+    width: fit-content;
+}
+
+.centered-content .get-started-button:hover {
+    background: #183d5c; 
+}
+
+.boxes-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px; 
+    margin-top: 20px; 
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 210px;
+    height: 170px;
+    border: 2px solid rgb(14, 83, 156);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #133b8b;
+    font-size: 14px;
+    border-radius: 8px;
+    opacity: 0; 
+    transform: scale(0); 
+    animation: pop 0.7s ease-out forwards;
+    flex-shrink: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+.boxes-container .box:nth-child(1) {
+    animation-delay: 0.2s; 
+}
+
+.boxes-container .box:nth-child(2) {
+    animation-delay: 0.6s; 
+}
+
+.boxes-container .box:nth-child(3) {
+    animation-delay: 0.8s; 
+}
+
+.exit-button {
+    background-color: #4c7caa; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.exit-button:hover {
+    background-color: #002141; 
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #134772;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-20px); 
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0); 
+        opacity: 0; 
+    }
+    100% {
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+/* Additional styles for language and about sections */
+.language-list {
+    display: none;
+    padding: 10px;
+    background: #f9f9f9;
+    border-top: 1px solid #ddd;
+}
+
+.language-list.active {
+    display: block;
+}
+
+.language-list a {
+    display: block;
+    padding: 10px;
+    color: #4984b4;
+    text-decoration: none;
+}
+
+.language-list a:hover {
+    background: #6cb0dd;
+    color: white;
+}
+
+.about-content {
+    display: none;
+    padding: 20px;
+    background: #f9f9f9;
+    border-top: 1px solid #ddd;
+    color: #4984b4;
+    font-size: 16px;
+}
+
+.about-content.active {
+    display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .centered-content h1 {
+        font-size: 36px;
+    }
+
+    .centered-content h2 {
+        font-size: 24px;
+    }
+
+    .centered-content img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .boxes-container {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .centered-content .get-started-button {
+        font-size: 20px;
+        padding: 15px;
+        width: 100%;
+    }
+
+    .box {
+        width: 90%;
+        height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    header, footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .header-right {
+        justify-content: center;
+    }
+
+    .help-button {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+    }
+
+    .boxes-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
